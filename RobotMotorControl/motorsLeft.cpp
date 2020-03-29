@@ -1,3 +1,6 @@
+motorsLeft.h
+
+
 /* This is a sketch to run the motors using Adafruit assembled Motor Shield for Ardunio v2
  * the purpose of this code is to have the motor run in a straight line and a backwards line
  *
@@ -15,14 +18,14 @@
   // Adafruit_MotorShield AFMS = Adafruit_MotorShield(0x61);
 
   //Select the 'port' M1, M2, M3, M4
-  Adafruit_DCMotor *myMotor1 = AFMS.getMotor(1);
-  Adafruit_DCMotor *myMotor2 = AFMS.getMotor(2);
-  Adafruit_DCMotor *myMotor3 = AFMS.getMotor(3);
-  Adafruit_DCMotor *myMotor4 = AFMS.getMotor(4);
+  Adafruit_DCMotor *myMotor1 = AFMS.getMotor(1); //Front Left
+  Adafruit_DCMotor *myMotor2 = AFMS.getMotor(2); //Front Right
+  Adafruit_DCMotor *myMotor3 = AFMS.getMotor(3); //Back Right
+  Adafruit_DCMotor *myMotor4 = AFMS.getMotor(4); //Back Left
 
 
 // Forward Drive Function Definition
-int motorsReverse(int i, int n);
+int motorsLeft(int i, int n);
 
 // Function definition (header and body)
 // This function drives all four motors forward at a user set speed (i) for a set delay time (n)
@@ -36,12 +39,12 @@ void loop()
   uint8_t i;
 
   int n = 10;
-  motorsReverse(i,n);
+  motorsLeft(i,n);
 
 }
 
 
-int motorsReverse(int i, int n)
+int motorsLeft(int i, int n)
 {
 
   Serial.begin(9600);
@@ -58,10 +61,10 @@ for (i=0; i<255; i++) {
   myMotor4->setSpeed(i);
   delay(n);
 
-  myMotor1->run(FORWARD);
-  myMotor2->run(FORWARD);
-  myMotor3->run(BACKWARD);
-  myMotor4->run(BACKWARD);
+  myMotor1->run(BACKWARD); //Front Left
+  myMotor2->run(FORWARD); //Front Right
+  myMotor3->run(BACKWARD); //Back Left
+  myMotor4->run(FORWARD); //Back Right
 
 
   }
