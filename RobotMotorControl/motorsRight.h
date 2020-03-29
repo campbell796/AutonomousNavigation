@@ -1,7 +1,7 @@
 motorsRight.h
 
 /* This is a sketch to run the motors using Adafruit assembled Motor Shield for Ardunio v2
- * the purpose of this code is to have the motor run in a straight line and a backwards line
+ * the purpose of this code is to have the motor run in a straight line on left side and a backwards line on right side.
  *
  */
 
